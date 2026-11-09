@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asesmen Diagnostik Awal - Laju Reaksi Kelas XI</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f3f4f6;
+        }
+        .option-card:hover {
+            border-color: #3b82f6;
+            background-color: #eff6ff;
+        }
+        .option-card input[type="radio"]:checked + label {
+            color: #1d4ed8;
+            font-weight: 600;
+        }
+        .option-card:has(input[type="radio"]:checked) {
+            border-color: #2563eb;
+            background-color: #dbeafe;
+        }
+    </style>
+</head>
+<body class="text-gray-800 pb-12">
+
+    <!-- Header Banner -->
+    <header class="bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-800 text-white shadow-lg">
+        <div class="max-w-4xl mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <div>
+                    <span class="bg-blue-500 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Kimia Kelas XI</span>
+                    <h1 class="text-2xl md:text-3xl font-bold mt-2">Media Asesmen Diagnostik Awal</h1>
+                    <p class="text-blue-100 text-sm mt-1">Materi: Laju Reaksi</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/20 text-right">
+                    <p class="text-xs text-blue-200 uppercase font-medium">Guru Pengampu:</p>
+                    <p class="text-base font-semibold text-white">Farikhah Coretta, S.Pd</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-4xl mx-auto px-4 mt-8">
+        
+        <!-- Form Container -->
+        <form id="diagnosticForm" onsubmit="handleSubmit(event)">
+            
+            <!-- Identitas Siswa -->
+            <div class="bg-white rounded-2xl shadow-md p-6 mb-8 border border-gray-100">
+                <h2 class="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-user-graduate text-blue-600"></i> Identitas Peserta Didik
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label>
+                        <input type="text" id="nama" required placeholder="Masukkan nama lengkap" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Kelas / Nomor Absen</label>
+                        <input type="text" id="kelas" required placeholder="Contoh: XI IPA 1 / 15" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                    </div>
+                </div>
+            </div>
+
+            <!-- BAGIAN 1: DIAGNOSTIK NON-AKADEMIK -->
+            <div class="bg-white rounded-2xl shadow-md p-6 mb-8 border border-gray-100">
+                <div class="border-b pb-4 mb-6">
+                    <span class="bg-indigo-100 text-indigo-700 text-xs font-bold px-3 py-1 rounded-full uppercase">Bagian I</span>
+                    <h2 class="text-xl font-bold text-gray-800 mt-2">Asesmen Diagnostik Non-Akademik</h2>
+                    <p class="text-gray-500 text-sm">Bertujuan untuk mengetahui gaya belajar, kondisi emosional, dan kendala belajar Anda.</p>
+                </div>
+
+                <div class="space-y-6">
+                    <!-- Non-Akademik Q1 -->
+                    <div>
+                        <p class="font-medium text-gray-800 mb-3">1. Bagaimana perasaan/kondisi emosional Anda saat akan memulai pembelajaran Kimia hari ini?</p>
+                        <div class="grid grid-cols-1 gap-2">
+                            <div class="option-card border rounded-lg p-3 cursor-pointer transition flex items-center">
+                                <input type="radio" id="na1_a" name="na1" value="Sangat bersemangat dan antusias" class="hidden" required>
+                                <label for="na1_a" class="w-full cursor-pointer text-sm text-gray-700">A. Sangat bersemangat dan antusias untuk belajar</label>
+                            </div>
+                            <div class="option-card border rounded-lg p-3 cursor-pointer transition flex items-center">
+                                <input type="radio" id="na1_b" name="na1" value="Senang dan siap mengikuti pelajaran" class="hidden">
+                                <label for="na1_b" class="w-full cursor-pointer text-sm text-gray-700">B. Senang dan siap mengikuti pelajaran dengan baik</label>
+                            </div>
+                            <div class="option-card border rounded-lg p-3 cursor-pointer transition flex items-center">
+                                <input type="radio" id="na1_c" name="na1" value="Biasa saja / Netral" class="hidden">
+                                <label for="na1_c" class="w-full cursor-pointer text-sm text-gray-700">C. Biasa saja / Merasa netral</label>
+                            </div>
+                            <div class="option-card border rounded-lg p-3 cursor-pointer transition flex items-center">
+                                <input type="radio" id="na1_d" name="na1" value="Kurang bersemangat / Agak lelah" class="hidden">
+                                <label for="na1_d" class="w-full cursor-pointer text-sm text-gray-700">D. Kurang bersemangat / Agak lelah</label>
+                            </div>
+                            <div class="option-card border rounded-lg p-3 cursor-pointer transition flex items-center">
+                                <input type="radio" id="na1_e" name="na1" value="Merasa cemas / Kurang percaya diri" class="hidden">
+                                <label for="na1_e" class="w-full cursor-pointer text-sm text-gray-700">E. Merasa cemas / Kurang percaya diri menghadapi pelajaran Kimia</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Non-Akademik Q2 -->
+                    <div>
+                        <p class="font-medium text-gray-800 mb-3">2. Cara belajar mana yang paling membantu Anda memahami materi Kimia dengan cepat?</p>
+                        <div class="grid grid-cols-1 gap-2">
+                            <div class="option-card border rounded-lg p-3 cursor-pointer transition flex items-center">
+                                <input type="radio" id="na2_a" name="na2" value="Membaca buku/slide yang dilengkapi ilustrasi/grafik" class="hidden" required>
+                                <label for="na2_a" class="w-full cursor-pointer text-sm text-gray-700">A. Membaca teks, slide, atau ringkasan yang dilengkapi diagram/grafik (Visual)</label>
+                            </div>
+                            <div class="option-card border rounded-lg p-3 cursor-pointer transition flex items-center">
+                                <input type="radio" id="na2_b" name="na2" value="Menonton video animasi atau praktikum interaktif" class="hidden">
+                                <label for="na2_b" class="w-full cursor-pointer text-sm text-gray-700">B. Menonton video pembelajaran atau animasi proses kimia (Visual-Auditori)</label>
+                            </div>
+                            <div class="option-card border rounded-lg p-3 cursor-pointer transition flex items-center">
+                                <input type="radio" id="na2_c" name="na2" value="Mendengarkan penjelasan langsung dari guru / diskusi" class="hidden">
+                                <label for="na2_c" class="w-full cursor-pointer text-sm text-gray-700">C. Mendengarkan penjelasan langsung dari guru atau berdiskusi (Auditori)</label>
+                            </div>
+                            <div class="option-card border rounded-lg p-3 cursor-pointer transition flex items-center">
+                                <input type="radio" id="na2_d" name="na2" value="Melakukan eksperimen/praktikum langsung di laboratorium" class="hidden">
+                                <label for="na2_d" class="w-full cursor-pointer text-sm text-gray-700">D. Melakukan eksperimen/praktikum atau manipulasi objek langsung (Kinestetik)</label>
+                            </div>
+                            <div class="option-card border rounded-lg p-3 cursor-pointer transition flex items-center">
+                                <input type="radio" id="na2_e" name="na2" value="Mengerjakan latihan soal secara mandiri" class="hidden">
+                                <label for="na2_e" class="w-full cursor-pointer text-sm text-gray-700">E. Mengerjakan latihan soal dan studi kasus mandiri (Praktikal)</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Non-Akademik Q3 -->
+                    <div>
+                        <p class="font-medium text-gray-800 mb-3">3. Fasilitas atau sarana belajar apa yang paling tersedia untuk mendukung belajar Anda di rumah?</p>
+                        <div class="grid grid-cols-1 gap-2">
+                            <div class="option-card border rounded-lg p-3 cursor-pointer transition flex items-center">
+                                <input type="radio" id="na3_a" name="na3" value="Smartphone & Kuota Internet Lancar" class="hidden" required>
+                                <label for="na3_a" class="w-full cursor-pointer text-sm text-gray-700">A. Smartphone pribadi dengan kuota/akses internet lancar</label>
+                            </div>
+                            <div class="option-card border rounded-lg p-3 cursor-pointer transition flex items-center">
+                                <input type="radio" id="na3_b" name="na3" value="Laptop/PC & Wi-Fi Rumah" class="hidden">
+                                <label for="na3_b" class="w-full cursor-pointer text-sm text-gray-700">B. Laptop/Komputer pribadi dengan koneksi Wi-Fi rumah</label>
+                            </div>
+                            <div class="option-card border rounded-lg p-3 cursor-pointer transition flex items-center">
+                                <input type="radio" id="na3_c" name="na3" value="Buku Paket / Modul Cetak Kimia Lengkap" class="hidden">
+                                <label for="na3_c" class="w-full cursor-pointer text-sm text-gray-700">C. Buku paket cetak dan modul pembelajaran kimia fisik</label>
+                            </div>
+                            <div class="option-card border rounded-lg p-3 cursor-pointer transition flex items-center">
+                                <input type="radio" id="na3_d" name="na3" value="Fasilitas internet terbatas / bergantian" class="hidden">
+                                <label for="na3_d" class="w-full cursor-pointer text-sm text-gray-700">D. Perangkat gawai ada, namun akses internet terbatas/terkadang tidak stabil</label>
+                            </div>
+                            <div class="option-card border rounded-lg p-3 cursor-pointer transition flex items-center">
+                                <input type="radio" id="na3_e" name="na3" value="Mengandalkan materi di sekolah saja" class="hidden">
+                                <label for="na3_e" class="w-full cursor-pointer text-sm text-gray-700">E. Hanya mengandalkan bahan ajar dan fasilitas yang disediakan di sekolah</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BAGIAN 2: DIAGNOSTIK AKADEMIK -->
+            <div class="bg-white rounded-2xl shadow-md p-6 mb-8 border border-gray-100">
+                <div class="border-b pb-4 mb-6">
+                    <span class="bg-purple-100 text-purple-700 text-xs font-bold px-3 py-1 rounded-full uppercase">Bagian II</span>
+                    <h2 class="text-xl font-bold text-gray-800 mt-2">Asesmen Diagnostik Akademik (Pemahaman Awal)</h2>
+                    <p class="text-gray-500 text-sm">Pilihlah satu jawaban yang paling tepat berdasarkan pemahaman awal Anda mengenai Laju Reaksi.</p>
+                </div>
+
+                <div class="space-y-8">
+                    <!-- Soal 1 -->
+                    <div>
+                        <div class="flex items-start gap-2 mb-3">
+                            <span class="font-bold text-blue-600">1.</span>
+                            <p class="font-medium text-gray-800">Secara umum, konsep laju reaksi dalam suatu reaksi kimia $A + B \rightarrow C + D$ dapat didefinisikan sebagai...</p>
+                        </div>
+                        <div class="grid grid-cols-1 gap-2 pl-5">
+                            <div class="option-card border rounded-lg p-3 cursor-pointer transition flex items-center">
+                                <input type="radio" id="ak1_a" name="ak1" value="A" class="hidden" required>
+                                <label for="ak1_a" class="w-full cursor-pointer text-sm text-gray-700">A. Pertambahan konsentrasi pereaksi ($A$ dan $B$) per satuan waktu</label>
+                            </div>
+                            <div class="option-card border rounded-lg p-3 cursor-pointer transition flex items-center">
+                                <input type="radio" id="ak1_b" name="ak1" value="B" class="hidden">
+                                <label for="ak1_b" class="w-full cursor-pointer text-sm text-gray-700">B. Berkurangnya konsentrasi hasil reaksi ($C$ dan $D$) per satuan waktu</label>
+                            </div>
+                            <div class="option-card border rounded-lg p-3 cursor-pointer transition flex items-center">
+                                <input type="radio" id="ak1_c" name="ak1" value="C" class="hidden">
+                                <label for="ak1_c" class="w-full cursor-pointer text-sm text-gray-700">C. Berkurangnya konsentrasi pereaksi ($A$ dan $B$) atau bertambahnya konsentrasi hasil reaksi ($C$ dan $D$) per satuan waktu</label>
+                            </div>
+                            <div class="option-card border rounded-lg p-3 cursor-pointer transition flex items-center">
+                                <input type="radio" id="ak1_d" name="ak1" value="D" class="hidden">
+                                <label for="ak1_d" class="w-full cursor-pointer text-sm text-gray-700">D. Jumlah total mol zat sebelum dan sesudah reaksi berlangsung</label>
+                            </div>
+                            <div class="option-card border rounded-lg p-3 cursor-pointer transition flex items-center">
+                                <input type="radio" id="ak1_e" name="ak1" value="E" class="hidden">
+                                <label for="ak1_e" class="w-full cursor-pointer text-sm text-gray-700">E. Perubahan massa total campuran reaksi dibagi dengan suhu reaksi</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Soal 2 -->
+                    <div>
+                        <div class="flex items-start gap-2 mb-3">
+                            <span class="font-bold text-blue-600">2.</span>
+                            <p class="font-medium text-gray-800">Ibu melarutkan gula pasir ke dalam air hangat lebih cepat larut dibandingkan ke dalam air dingin. Faktor utama yang mempengaruhi laju pelarutan tersebut adalah...</p>
+                        </div>
+                        <div class="grid grid-cols-1 gap-2 pl-5">
+                            <div class="option-card border rounded-lg p-3 cursor-pointer transition flex items-center">
+                                <input type="radio" id="ak2_a" name="ak2" value="A" class="hidden" required>
+                                <label for="ak2_a" class="w-full cursor-pointer text-sm text-gray-700">A. Konsentrasi zat terlarut</label>
+                            </div>
+                            <div class="option-card border rounded-lg p-3 cursor-pointer transition flex items-center">
+                                <input type="radio" id="ak2_b" name="ak2" value="B" class="hidden">
+                                <label for="ak2_b" class="w-full cursor-pointer text-sm text-gray-700">B. Luas permukaan sentuh</label>
+                            </div>
+                            <div class="option-card border rounded-lg p-3 cursor-pointer transition flex items-center">
+                                <input type="radio" id="ak2_c" name="ak2" value="C" class="hidden">
+                                <label for="ak2_c" class="w-full cursor-pointer text-sm text-gray-700">C. Suhu / Temperatur</label>
+                            </div>
+                            <div class="option-card border rounded-lg p-3 cursor-pointer transition flex items-center">
+                                <input type="radio" id="ak2_d" name="ak2" value="D" class="hidden">
+                                <label for="ak2_d" class="w-full cursor-pointer text-sm text-gray-700">D. Penambahan katalisator</label>
+                            </div>
+                            <div class="option-card border rounded-lg p-3 cursor-pointer transition flex items-center">
+                                <input type="radio" id="ak2_e" name="ak2" value="E" class="hidden">
+                                <label for="ak2_e" class="w-full cursor-pointer text-sm text-gray-700">E. Tekanan wadah pelarutan</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Soal 3 -->
+                    <div>
+                        <div class="flex items-start gap-2 mb-3">
+                            <span class="font-bold text-blue-600">3.</span>
+                            <p class="font-medium text-gray-800">Garam halus berukuran kecil lebih cepat larut dalam air dibandingkan garam batangan (kristal besar) dengan massa yang sama. Alasan terjadinya fenomena tersebut berdasarkan teori tumbukan adalah...</p>
+                        </div>
+                        <div class="grid grid-cols-1 gap-2 pl-5">
+                            <div class="option-card border rounded-lg p-3 cursor-pointer transition flex items-center">
+                                <input type="radio" id="ak3_a" name="ak3" value="A" class="hidden" required>
+                                <label for="ak3_a" class="w-full cursor-pointer text-sm text-gray-700">A. Garam halus memiliki energi aktivasi yang lebih tinggi</label>
+                            </div>
+                            <div class="option-card border rounded-lg p-3 cursor-pointer transition flex items-center">
+                                <input type="radio" id="ak3_b" name="ak3" value="B" class="hidden">
+                                <label for="ak3_b" class="w-full cursor-pointer text-sm text-gray-700">B. Garam halus memiliki luas permukaan sentuh yang lebih besar sehingga frekuensi tumbukan makin banyak</label>
+                            </div>
+                            <div class="option-card border rounded-lg p-3 cursor-pointer transition flex items-center">
+                                <input type="radio" id="ak3_c" name="ak3" value="C" class="hidden">
+                                <label for="ak3_c" class="w-full cursor-pointer text-sm text-gray-700">C. Garam batangan memiliki jumlah partikel yang lebih banyak dibandingkan garam halus</label>
+                            </div>
+                            <div class="option-card border rounded-lg p-3 cursor-pointer transition flex items-center">
+                                <input type="radio" id="ak3_d" name="ak3" value="D" class="hidden">
+                                <label for="ak3_d" class="w-full cursor-pointer text-sm text-gray-700">D. Garam halus dapat menurunkan nilai entalpi sistem secara drastis</label>
+                            </div>
+                            <div class="option-card border rounded-lg p-3 cursor-pointer transition flex items-center">
+                                <input type="radio" id="ak3_e" name="ak3" value="E" class="hidden">
+                                <label for="ak3_e" class="w-full cursor-pointer text-sm text-gray-700">E. Garam batangan mempercepat pergerakan kinetik molekul air</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Soal 4 -->
+                    <div>
+                        <div class="flex items-start gap-2 mb-3">
+                            <span class="font-bold text-blue-600">4.</span>
+                            <p class="font-medium text-gray-800">Suatu reaksi memiliki persamaan laju $v = k [A]^1 [B]^2$. Jika konsentrasi zat $B$ dinaikkan menjadi 2 kali semula sedangkan konsentrasi $A$ tetap, maka laju reaksinya menjadi...</p>
+                        </div>
+                        <div class="grid grid-cols-1 gap-2 pl-5">
+                            <div class="option-card border rounded-lg p-3 cursor-pointer transition flex items-center">
+                                <input type="radio" id="ak4_a" name="ak4" value="A" class="hidden" required>
+                                <label for="ak4_a" class="w-full cursor-pointer text-sm text-gray-700">A. 2 kali semula</label>
+                            </div>
+                            <div class="option-card border rounded-lg p-3 cursor-pointer transition flex items-center">
+                                <input type="radio" id="ak4_b" name="ak4" value="B" class="hidden">
+                                <label for="ak4_b" class="w-full cursor-pointer text-sm text-gray-700">B. 3 kali semula</label>
+                            </div>
+                            <div class="option-card border rounded-lg p-3 cursor-pointer transition flex items-center">
+                                <input type="radio" id="ak4_c" name="ak4" value="C" class="hidden">
+                                <label for="ak4_c" class="w-full cursor-pointer text-sm text-gray-700">C. 4 kali semula</label>
+                            </div>
+                            <div class="option-card border rounded-lg p-3 cursor-pointer transition flex items-center">
+                                <input type="radio" id="ak4_d" name="ak4" value="D" class="hidden">
+                                <label for="ak4_d" class="w-full cursor-pointer text-sm text-gray-700">D. 6 kali semula</label>
+                            </div>
+                            <div class="option-card border rounded-lg p-3 cursor-pointer transition flex items-center">
+                                <input type="radio" id="ak4_e" name="ak4" value="E" class="hidden">
+                                <label for="ak4_e" class="w-full cursor-pointer text-sm text-gray-700">E. 8 kali semula</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Soal 5 -->
+                    <div>
+                        <div class="flex items-start gap-2 mb-3">
+                            <span class="font-bold text-blue-600">5.</span>
+                            <p class="font-medium text-gray-800">Fungsi dari penambahan katalis dalam suatu reaksi kimia adalah untuk mempercepat reaksi dengan cara...</p>
+                        </div>
+                        <div class="grid grid-cols-1 gap-2 pl-5">
+                            <div class="option-card border rounded-lg p-3 cursor-pointer transition flex items-center">
+                                <input type="radio" id="ak5_a" name="ak5" value="A" class="hidden" required>
+                                <label for="ak5_a" class="w-full cursor-pointer text-sm text-gray-700">A. Meningkatkan energi kinetik rata-rata molekul pereaksi</label>
+                            </div>
+                            <div class="option-card border rounded-lg p-3 cursor-pointer transition flex items-center">
+                                <input type="radio" id="ak5_b" name="ak5" value="B" class="hidden">
+                                <label for="ak5_b" class="w-full cursor-pointer text-sm text-gray-700">B. Menurunkan energi aktivasi ($E_a$) reaksi</label>
+                            </div>
+                            <div class="option-card border rounded-lg p-3 cursor-pointer transition flex items-center">
+                                <input type="radio" id="ak5_c" name="ak5" value="C" class="hidden">
+                                <label for="ak5_c" class="w-full cursor-pointer text-sm text-gray-700">C. Menambah konsentrasi hasil reaksi secara langsung</label>
+                            </div>
+                            <div class="option-card border rounded-lg p-3 cursor-pointer transition flex items-center">
+                                <input type="radio" id="ak5_d" name="ak5" value="D" class="hidden">
+                                <label for="ak5_d" class="w-full cursor-pointer text-sm text-gray-700">D. Mengubah reaksi endoterm menjadi reaksi eksoterm</label>
+                            </div>
+                            <div class="option-card border rounded-lg p-3 cursor-pointer transition flex items-center">
+                                <input type="radio" id="ak5_e" name="ak5" value="E" class="hidden">
+                                <label for="ak5_e" class="w-full cursor-pointer text-sm text-gray-700">E. Meningkatkan jumlah total entalpi pereaksi</label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center">
+                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-xl shadow-lg transition duration-200 transform hover:-translate-y-0.5">
+                    <i class="fa-solid fa-paper-plane mr-2"></i> Kirim Jawaban Asesmen
+                </button>
+            </div>
+        </form>
+
+        <!-- Result / Confirmation Modal -->
+        <div id="resultModal" class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+            <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6">
+                <div class="text-center mb-6">
+                    <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-3 text-2xl">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800">Asesmen Berhasil Dikirim!</h3>
+                    <p class="text-gray-500 text-sm">Terima kasih telah menyelesaikan tes diagnostik awal ini.</p>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl p-4 mb-6 text-sm space-y-2 border">
+                    <p><strong>Nama:</strong> <span id="resNama"></span></p>
+                    <p><strong>Kelas/Absen:</strong> <span id="resKelas"></span></p>
+                    <p><strong>Guru Pengampu:</strong> Farikhah Coretta, S.Pd</p>
+                    <hr class="my-2">
+                    <p class="font-semibold text-gray-700">Ringkasan Jawaban Akademik:</p>
+                    <ul id="resAkademikList" class="list-disc pl-5 text-gray-600"></ul>
+                </div>
+
+                <div class="flex gap-3">
+                    <button onclick="window.print()" class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-lg transition text-sm">
+                        <i class="fa-solid fa-print mr-1"></i> Cetak / Simpan PDF
+                    </button>
+                    <button onclick="closeModal()" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition text-sm">
+                        Selesai
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- MathJax for rendering LaTeX formulas -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <script>
+        function handleSubmit(e) {
+            e.preventDefault();
+            
+            const nama = document.getElementById('nama').value;
+            const kelas = document.getElementById('kelas').value;
+
+            document.getElementById('resNama').innerText = nama;
+            document.getElementById('resKelas').innerText = kelas;
+
+            const listContainer = document.getElementById('resAkademikList');
+            listContainer.innerHTML = '';
+
+            for (let i = 1; i <= 5; i++) {
+                const selected = document.querySelector(`input[name="ak${i}"]:checked`);
+                const val = selected ? selected.value : '-';
+                const li = document.createElement('li');
+                li.innerText = `Soal Nomor ${i}: Opsi (${val})`;
+                listContainer.appendChild(li);
+            }
+
+            document.getElementById('resultModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('resultModal').classList.add('hidden');
+            document.getElementById('diagnosticForm').reset();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
